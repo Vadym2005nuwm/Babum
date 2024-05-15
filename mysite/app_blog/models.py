@@ -31,10 +31,10 @@ class Article(models.Model):
                             unique_for_date='pub_date')
 
     main_page = models.BooleanField(u'Головна',
-                                    default=False,
-                                    help_text=u'Показувати')
+                                    default=True,
+                                    help_text=u'Показувати на головній сторінці')
     category = models.ForeignKey(Category,
-                                 related_name='news',
+                                 related_name='articles',
                                  blank=True,
                                  null=True,
                                  verbose_name=u'Категорія',
@@ -43,8 +43,8 @@ class Article(models.Model):
 
     class Meta:
         ordering = ['-pub_date']
-        verbose_name = u'Публікація'
-        verbose_name_plural = u'Публікації'
+        verbose_name = u'Стаття'
+        verbose_name_plural = u'Статті'
 
     def __str__(self):
         return self.title
