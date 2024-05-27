@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
-
 from .models import ArticleImage
-
 
 class ArticleImageForm(forms.ModelForm):
     image = forms.ImageField(
-        widget=forms.ClearableFileInput(
-            attrs={'multiple': True}))
+        widget=forms.ClearableFileInput())
 
     class Meta:
         model = ArticleImage
